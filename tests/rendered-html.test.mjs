@@ -29,7 +29,7 @@ test("server-renders the academic homepage structure", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>Xenia Jiang — Academic Homepage — Xenia Jiang<\/title>/i);
+  assert.match(html, /<title>Xenia Jiang — Academic Homepage<\/title>/i);
   assert.match(html, /<header class="site-header">/);
   assert.match(html, /<main(?:\s|>)/);
   assert.match(html, /type="application\/ld\+json"/);

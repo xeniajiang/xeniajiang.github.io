@@ -192,7 +192,7 @@ export const selectedWriting = [
     order: 1,
     titleZh: "我们为何警惕“阳刚女性主义”",
     subtitleZh: "兼论 bottom shame 与厌跨女症",
-    titleEn: "Why We Should Be Wary of “Masculinist Feminism”",
+    titleEn: "Why We Should Be Wary of “Masculine Feminism”",
     subtitleEn: "On Bottom Shame and Transmisogyny",
     date: "2026-02-23",
     url: "https://mp.weixin.qq.com/s/efeeKpUxsxD24Ets5wddSQ",

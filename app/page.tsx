@@ -8,7 +8,9 @@ import { TransitionLink } from "@/components/TransitionLink";
 import { siteContent } from "@/src/data/siteContent";
 
 export const metadata: Metadata = {
-  title: siteContent.site.homeMetadata.title,
+  title: {
+    absolute: siteContent.site.homeMetadata.title,
+  },
   description: siteContent.site.homeMetadata.description,
 };
 
