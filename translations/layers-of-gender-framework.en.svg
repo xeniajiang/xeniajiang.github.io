@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1300" viewBox="0 0 1800 1300" role="img" aria-labelledby="title desc">
+  <title id="title">Layers of Gender: Theoretical Framework</title>
+  <desc id="desc">A four-branch mind map covering Social Interaction, Embodied Experience, Assignment &amp; Recognition, and Implicit Norms &amp; Layer Dynamics.</desc>
+  <rect width="1800" height="1300" fill="#f7f3ee"/>
+
+  <g fill="none" stroke-linecap="round" stroke-width="3">
+    <path d="M72 640 C180 640 185 205 470 205" stroke="#2676df"/>
+    <path d="M72 640 C185 640 220 555 470 555" stroke="#35bd78"/>
+    <path d="M72 640 C190 640 215 895 470 895" stroke="#ec981d"/>
+    <path d="M72 640 C115 640 130 1138 470 1138" stroke="#ef5d61"/>
+
+    <path d="M500 205 C575 205 590 72 680 72" stroke="#2676df"/>
+    <path d="M500 205 C575 205 600 122 680 122" stroke="#2676df"/>
+    <path d="M500 205 C575 205 610 172 680 172" stroke="#2676df"/>
+    <path d="M500 205 C580 205 615 222 680 222" stroke="#2676df"/>
+    <path d="M500 205 C575 205 610 272 680 272" stroke="#2676df"/>
+    <path d="M500 205 C575 205 600 322 680 322" stroke="#2676df"/>
+    <path d="M500 205 C570 205 590 372 680 372" stroke="#2676df"/>
+
+    <path d="M500 555 C570 555 590 422 680 422" stroke="#35bd78"/>
+    <path d="M500 555 C575 555 600 472 680 472" stroke="#35bd78"/>
+    <path d="M500 555 C575 555 610 522 680 522" stroke="#35bd78"/>
+    <path d="M500 555 C580 555 615 572 680 572" stroke="#35bd78"/>
+    <path d="M500 555 C575 555 610 622 680 622" stroke="#35bd78"/>
+    <path d="M500 555 C575 555 600 672 680 672" stroke="#35bd78"/>
+    <path d="M500 555 C570 555 590 722 680 722" stroke="#35bd78"/>
+
+    <path d="M500 895 C575 895 605 812 680 812" stroke="#ec981d"/>
+    <path d="M500 895 C580 895 615 867 680 867" stroke="#ec981d"/>
+    <path d="M500 895 C580 895 615 922 680 922" stroke="#ec981d"/>
+    <path d="M500 895 C575 895 605 977 680 977" stroke="#ec981d"/>
+
+    <path d="M500 1138 C570 1138 595 1038 680 1038" stroke="#ef5d61"/>
+    <path d="M500 1138 C575 1138 605 1088 680 1088" stroke="#ef5d61"/>
+    <path d="M500 1138 C580 1138 615 1138 680 1138" stroke="#ef5d61"/>
+    <path d="M500 1138 C575 1138 605 1188 680 1188" stroke="#ef5d61"/>
+    <path d="M500 1138 C570 1138 595 1238 680 1238" stroke="#ef5d61"/>
+  </g>
+
+  <g fill="#f7f3ee" stroke-width="3">
+    <circle cx="72" cy="640" r="12" stroke="#4a6cb3"/>
+    <circle cx="490" cy="205" r="10" stroke="#2676df"/>
+    <circle cx="490" cy="555" r="10" stroke="#35bd78"/>
+    <circle cx="490" cy="895" r="10" stroke="#ec981d"/>
+    <circle cx="490" cy="1138" r="10" stroke="#ef5d61"/>
+  </g>
+
+  <g font-family="'Helvetica Neue', Arial, sans-serif" fill="#29252a">
+    <g font-size="27" font-weight="500" text-anchor="end">
+      <text x="455" y="188">Social Interaction</text>
+      <text x="455" y="538">Embodied Experience</text>
+      <text x="455" y="878">Assignment &amp; Recognition</text>
+      <text x="455" y="1121">Implicit Norms &amp; Layer Dynamics</text>
+    </g>
+
+    <g font-size="24">
+      <text x="704" y="80"><tspan>Gendered Appearance &amp; Readability</tspan><tspan fill="#625b62">&#160;— expression / qizhi</tspan></text>
+      <text x="704" y="130">Identity &amp; Role</text>
+      <text x="704" y="180">Spatial Orientation</text>
+      <text x="704" y="230">Interactive Behavior</text>
+      <text x="704" y="280">Gendered Situation</text>
+      <text x="704" y="330">Sexual Script</text>
+      <text x="704" y="380">Gendering Through Language</text>
+
+      <text x="704" y="430">Lived Body Experience</text>
+      <text x="704" y="480">Sexed Traits</text>
+      <text x="704" y="530">Body Schema</text>
+      <text x="704" y="580">Body Image</text>
+      <text x="704" y="630">Imaginary Anatomy</text>
+      <text x="704" y="680">Sexual Schema</text>
+      <text x="704" y="730">Psychological Response Patterns</text>
+
+      <text x="704" y="820"><tspan>Coercive State Assignment</tspan><tspan fill="#625b62">&#160;— assigned sex/gender at birth; sex/gender reassignment</tspan></text>
+      <text x="704" y="875">Institutional Registration</text>
+      <text x="704" y="930">Relational Identity Fixation</text>
+      <text x="704" y="985">Self-Assignment / Gender Identity</text>
+
+      <text x="704" y="1046">Assumptions of Connection</text>
+      <text x="704" y="1096">Assumption of Alignment</text>
+      <text x="704" y="1146">Assumption of Fixity</text>
+      <text x="704" y="1196">Interactions Among Layers</text>
+      <text x="704" y="1246">Gender Forces</text>
+    </g>
+  </g>
+</svg>

@@ -43,7 +43,8 @@ export type SelectedWritingItem = {
   titleEn: string;
   subtitleEn: string;
   date: string;
-  url: string;
+  originalUrl: string;
+  translationUrl: string;
   themes: readonly ThemeId[];
 };
 
@@ -195,7 +196,8 @@ export const selectedWriting = [
     titleEn: "Why We Should Be Wary of “Masculine Feminism”",
     subtitleEn: "On Bottom Shame and Transmisogyny",
     date: "2026-02-23",
-    url: "https://mp.weixin.qq.com/s/efeeKpUxsxD24Ets5wddSQ",
+    originalUrl: "https://mp.weixin.qq.com/s/efeeKpUxsxD24Ets5wddSQ",
+    translationUrl: "/writing/masculine-feminism/",
     themes: writingThemeAnnotations["masculinist-feminism"],
   },
   {
@@ -206,7 +208,8 @@ export const selectedWriting = [
     titleEn: "How Many Layers Does “Gender” Have?",
     subtitleEn: "A Conceptual Map of How We Understand Our Own Gender",
     date: "2026-04-24",
-    url: "https://mp.weixin.qq.com/s/0mUAvZp9hxnL3nmmcJagMQ",
+    originalUrl: "https://mp.weixin.qq.com/s/0mUAvZp9hxnL3nmmcJagMQ",
+    translationUrl: "/writing/layers-of-gender/",
     themes: writingThemeAnnotations["layers-of-gender"],
   },
   {
@@ -214,10 +217,11 @@ export const selectedWriting = [
     order: 3,
     titleZh: "一指定终身",
     subtitleZh: "将 sex 翻译为“性指”的提案",
-    titleEn: "Pointed Once, Fixed for Life",
-    subtitleEn: "A Proposal to Translate Sex as 性指 (Xingzhi)",
+    titleEn: "A Finger Points, a Life Assigned",
+    subtitleEn: "A Proposal to Translate Sex as 性指 (xingzhi)",
     date: "2026-03-26",
-    url: "https://mp.weixin.qq.com/s/wq1N3huaRgBDR4NwkSzpNQ",
+    originalUrl: "https://mp.weixin.qq.com/s/wq1N3huaRgBDR4NwkSzpNQ",
+    translationUrl: "/writing/xingzhi-translation/",
     themes: writingThemeAnnotations["xingzhi-translation"],
   },
   {
@@ -226,9 +230,10 @@ export const selectedWriting = [
     titleZh: "身体理论工具箱·导言",
     subtitleZh: "重绘跨儿身体的感受地图",
     titleEn: "The Body Theory Toolbox: An Introduction",
-    subtitleEn: "Remapping the Felt Topography of Trans Bodies",
+    subtitleEn: "Remapping the Felt Topography of Trans Embodiment",
     date: "2026-04-16",
-    url: "https://mp.weixin.qq.com/s/JLCvxTjsw97JGnNL2D1RXw",
+    originalUrl: "https://mp.weixin.qq.com/s/JLCvxTjsw97JGnNL2D1RXw",
+    translationUrl: "/writing/body-theory-toolbox/",
     themes: writingThemeAnnotations["body-theory-toolbox"],
   },
   {
@@ -236,10 +241,11 @@ export const selectedWriting = [
     order: 5,
     titleZh: "生活在别处？",
     subtitleZh: "“男娘”、无未来与人类学",
-    titleEn: "Living Elsewhere?",
-    subtitleEn: "Nanniang / Femboy, No Future, and Anthropology",
+    titleEn: "Life Is Elsewhere?",
+    subtitleEn: "Nanniang, No Future, and Anthropology",
     date: "2026-05-01",
-    url: "https://mp.weixin.qq.com/s/jUZKmnDM1LbA8XDARwvSJQ",
+    originalUrl: "https://mp.weixin.qq.com/s/jUZKmnDM1LbA8XDARwvSJQ",
+    translationUrl: "/writing/nanniang-no-future/",
     themes: writingThemeAnnotations["nanniang-no-future"],
   },
   {
@@ -249,9 +255,10 @@ export const selectedWriting = [
     subtitleZh: "我们用机器学习拆解了“性别读取”的黑盒",
     titleEn: "What Difference Can a Dress Make?",
     subtitleEn:
-      "Unfolding the Black Box of “Gender Reading” with Machine Learning",
+      "Using Machine Learning to Open the Black Box of Gender Reading",
     date: "2026-05-14",
-    url: "https://mp.weixin.qq.com/s/m2A8eVORHzrPogIxtQDSXA",
+    originalUrl: "https://mp.weixin.qq.com/s/m2A8eVORHzrPogIxtQDSXA",
+    translationUrl: "/writing/dress-gender-reading/",
     themes: writingThemeAnnotations["dress-gender-reading"],
   },
   {
@@ -259,32 +266,35 @@ export const selectedWriting = [
     order: 7,
     titleZh: "我想化妆，但这不够“进步”",
     subtitleZh: "欲望为何会朝向规范",
-    titleEn: "I Want to Wear Makeup, but That Isn’t “Progressive” Enough",
+    titleEn: "I Want to Wear Makeup, but Wanting It Is Not “Progressive”",
     subtitleEn: "Why Desire Turns Toward Norms",
     date: "2026-07-04",
-    url: "https://mp.weixin.qq.com/s/-npogEdhqp4Mkzccl-Qabg",
+    originalUrl: "https://mp.weixin.qq.com/s/-npogEdhqp4Mkzccl-Qabg",
+    translationUrl: "/writing/makeup-and-norms/",
     themes: writingThemeAnnotations["makeup-and-norms"],
   },
   {
     id: "between-silence-and-silence",
-    order: 8,
+    order: 9,
     titleZh: "在沉默与沉默之间",
     subtitleZh: "《上海拉拉》中的女性同志主体与微观抵抗",
     titleEn: "Between Silence and Silence",
     subtitleEn: "Lesbian Subjectivity and Micro-Resistance in Shanghai Lalas",
     date: "2026-04-26",
-    url: "https://mp.weixin.qq.com/s/gIy7TLuqWu5-vKh0g8wsZg",
+    originalUrl: "https://mp.weixin.qq.com/s/gIy7TLuqWu5-vKh0g8wsZg",
+    translationUrl: "/writing/between-silence-and-silence/",
     themes: writingThemeAnnotations["between-silence-and-silence"],
   },
   {
     id: "tefu-temple",
-    order: 9,
+    order: 8,
     titleZh: "“纯虚构”文学",
     subtitleZh: "一位跨女来到特福（TERF）殿前",
-    titleEn: "“Pure Fiction”",
-    subtitleEn: "A Trans Woman Before the TEFU(TERF) Temple",
+    titleEn: "A Work of “Pure Fiction”",
+    subtitleEn: "A Trans Woman at the Gates of the Temple of TERF",
     date: "2026-04-21",
-    url: "https://mp.weixin.qq.com/s/lJuIK8ucnhH9rDa0pik7bg",
+    originalUrl: "https://mp.weixin.qq.com/s/lJuIK8ucnhH9rDa0pik7bg",
+    translationUrl: "/writing/tefu-temple/",
     themes: writingThemeAnnotations["tefu-temple"],
   },
   {
@@ -292,10 +302,11 @@ export const selectedWriting = [
     order: 10,
     titleZh: "跨儿“失格”",
     subtitleZh: "身为跨儿，我很抱歉",
-    titleEn: "Trans, Disqualified",
-    subtitleEn: "As a Trans Person, I’m Sorry",
+    titleEn: "No Longer Hu(Wo)man",
+    subtitleEn: "I’m Sorry for Being Trans",
     date: "2025-12-28",
-    url: "https://mp.weixin.qq.com/s/sK1HsZ5JItgEWGuRiF8AWA",
+    originalUrl: "https://mp.weixin.qq.com/s/sK1HsZ5JItgEWGuRiF8AWA",
+    translationUrl: "/writing/trans-disqualified/",
     themes: writingThemeAnnotations["trans-disqualified"],
   },
   {
@@ -303,11 +314,12 @@ export const selectedWriting = [
     order: 11,
     titleZh: "想象中的“劣币”",
     subtitleZh: "排跨话语、“过度女性化”指控与柠檬市场逻辑",
-    titleEn: "The Imagined “Bad Money”",
+    titleEn: "The Imagined Sour Lemon",
     subtitleEn:
-      "Trans-Exclusionary Discourse, Accusations of “Excessive Femininity,” and the Logic of the Market for Lemons",
+      "Trans-Exclusionary Discourse, Accusations of “Hyper-Femininity,” and the Logic of the Market for Lemons",
     date: "2026-01-23",
-    url: "https://mp.weixin.qq.com/s/Y0_Z-XT-DYUoDGj_EvdBVA",
+    originalUrl: "https://mp.weixin.qq.com/s/Y0_Z-XT-DYUoDGj_EvdBVA",
+    translationUrl: "/writing/imagined-bad-money/",
     themes: writingThemeAnnotations["imagined-bad-money"],
   },
 ] satisfies SelectedWritingItem[];
@@ -316,7 +328,7 @@ export const contact = {
   email: "xxa.xenia@gmail.com",
   orcid: "https://orcid.org/0009-0002-0618-451X",
   linkedin: "https://www.linkedin.com/in/xenia-jiang/",
-  witchTideUrl: selectedWriting[0].url,
+  witchTideUrl: selectedWriting[0].originalUrl,
 } as const;
 
 export const siteContent = {
@@ -329,8 +341,19 @@ export const siteContent = {
       description: "The academic homepage of Xenia Jiang.",
     },
     homeMetadata: {
-      title: "Xenia Jiang — Academic Homepage",
-      description: "Xenia Jiang, Researcher at Peking University.",
+      title: "Xenia Jiang 姜浸月 | Sociology and Gender Research | 巫语潮信",
+      description:
+        "Xenia Jiang (姜浸月) is a sociology and gender researcher at Peking University and the independent writer behind WitchTide (巫语潮信).",
+      profileDescription:
+        "Xenia Jiang (姜浸月) is a sociology and gender researcher at Peking University and the independent writer behind WitchTide (巫语潮信).",
+      url: "https://xeniajiang.github.io/",
+      image: "https://xeniajiang.github.io/images/portrait.png",
+      siteName: "Xenia Jiang",
+      alternateNames: [
+        "Xenia Jiang Academic Homepage",
+        "WitchTide",
+        "巫语潮信",
+      ],
     },
   },
   person: {
@@ -363,7 +386,8 @@ export const siteContent = {
     menuClosedLabel: "Menu",
     researchHeading: "Research",
     researchAgendasHeading: "Research Agendas",
-    arrowSymbol: "→",
+    translationBackLabel: "← Selected Writing",
+    translationForthcomingLabel: "English translation forthcoming.",
   },
   home: {
     introduction: [

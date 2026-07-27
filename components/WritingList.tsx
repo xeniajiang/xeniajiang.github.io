@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import type {
   SelectedWritingItem,
   ThemeId,
@@ -6,15 +9,14 @@ import { TransitionLink } from "./TransitionLink";
 
 export function WritingList({
   heading,
-  arrowSymbol,
   writing,
   activeTheme = null,
 }: {
   heading: string;
-  arrowSymbol: string;
   writing: readonly SelectedWritingItem[];
   activeTheme?: ThemeId | null;
 }) {
+  const [language, setLanguage] = useState<"zh" | "en">("en");
   const orderedWriting = [...writing].sort((a, b) => a.order - b.order);
   const columns = [orderedWriting.slice(0, 6), orderedWriting.slice(6)];
 
@@ -26,7 +28,14 @@ export function WritingList({
       : "";
     const isFeatured = item.order <= 3;
     const featuredClass = isFeatured ? " is-featured" : "";
-    const content = (
+    const isEnglish = language === "en";
+    const title = isEnglish ? item.titleEn : item.titleZh;
+    const subtitle = isEnglish ? item.subtitleEn : item.subtitleZh;
+    const primaryHref = isEnglish
+      ? item.translationUrl
+      : item.originalUrl;
+    const isLinked = Boolean(primaryHref);
+    const primaryContent = (
       <>
         <span className="writing-index" aria-hidden="true">
           <span className="writing-number">
@@ -34,39 +43,50 @@ export function WritingList({
           </span>
           {isFeatured && <span className="writing-star">☆</span>}
         </span>
-        <span className="writing-language">
-          <span className="writing-title">{item.titleEn}</span>
-          <span className="writing-subtitle">{item.subtitleEn}</span>
-          <span className="writing-end">
-            <time className="writing-meta" dateTime={item.date}>
-              {item.date}
-            </time>
-            {item.url && (
-              <span className="row-arrow" aria-hidden="true">
-                {arrowSymbol}
-              </span>
-            )}
-          </span>
+        <span className="writing-language" lang={isEnglish ? "en" : "zh-CN"}>
+          <span className="writing-title">{title}</span>
+          <span className="writing-subtitle">{subtitle}</span>
         </span>
       </>
     );
 
-    return item.url ? (
-      <TransitionLink
-        className={`writing-row is-linked themed-item${featuredClass}${themeClass}`}
-        href={item.url}
-        id={`writing-${item.id}`}
-        key={item.id}
-      >
-        {content}
-      </TransitionLink>
-    ) : (
+    return (
       <article
-        className={`writing-row themed-item${featuredClass}${themeClass}`}
+        className={`writing-row${isLinked ? " is-linked" : ""} themed-item${featuredClass}${themeClass}`}
         id={`writing-${item.id}`}
         key={item.id}
       >
-        {content}
+        {isLinked ? (
+          <TransitionLink
+            className="writing-primary-link"
+            href={primaryHref}
+            pageDirection={isEnglish ? "forward" : undefined}
+            aria-label={
+              isEnglish
+                ? `Read the English translation of ${item.titleEn}`
+                : `阅读中文原文：${item.titleZh}`
+            }
+          >
+            {primaryContent}
+          </TransitionLink>
+        ) : (
+          <div
+            className="writing-primary-link is-disabled"
+            aria-disabled="true"
+          >
+            {primaryContent}
+          </div>
+        )}
+        <div className="writing-end">
+          <time className="writing-meta" dateTime={item.date}>
+            {item.date}
+          </time>
+          {isLinked && (
+            <span className="row-arrow" aria-hidden="true">
+              →
+            </span>
+          )}
+        </div>
       </article>
     );
   };
@@ -77,7 +97,28 @@ export function WritingList({
         activeTheme ? " is-filtering" : ""
       }`}
     >
-      <h2 className="section-heading">{heading}</h2>
+      <div className="writing-heading-row">
+        <h2 className="section-heading">{heading}</h2>
+        <div className="writing-language-toggle" aria-label="Writing language">
+          <button
+            className={language === "zh" ? "is-active" : ""}
+            type="button"
+            aria-pressed={language === "zh"}
+            onClick={() => setLanguage("zh")}
+          >
+            中
+          </button>
+          <span aria-hidden="true">|</span>
+          <button
+            className={language === "en" ? "is-active" : ""}
+            type="button"
+            aria-pressed={language === "en"}
+            onClick={() => setLanguage("en")}
+          >
+            EN
+          </button>
+        </div>
+      </div>
       <div className="writing-list">
         {columns.map((column, index) => (
           <div className="writing-column" key={index}>

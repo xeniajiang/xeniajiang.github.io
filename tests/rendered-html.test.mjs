@@ -29,11 +29,47 @@ test("server-renders the academic homepage structure", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>Xenia Jiang — Academic Homepage<\/title>/i);
+  assert.match(
+    html,
+    /<title>Xenia Jiang 姜浸月 \| Sociology and Gender Research \| 巫语潮信<\/title>/i,
+  );
+  assert.equal((html.match(/<title>/gi) ?? []).length, 1);
+  assert.match(
+    html,
+    /<meta name="description" content="Xenia Jiang \(姜浸月\) is a sociology and gender researcher at Peking University and the independent writer behind WitchTide \(巫语潮信\)\."\/>/,
+  );
+  assert.match(
+    html,
+    /<link rel="canonical" href="https:\/\/xeniajiang\.github\.io\/"\/>/,
+  );
+  assert.match(html, /<meta property="og:type" content="profile"\/>/);
+  assert.match(
+    html,
+    /<meta property="og:site_name" content="Xenia Jiang"\/>/,
+  );
+  assert.match(
+    html,
+    /<meta property="og:image" content="https:\/\/xeniajiang\.github\.io\/images\/portrait\.png"\/>/,
+  );
+  assert.match(
+    html,
+    /<meta name="twitter:card" content="summary_large_image"\/>/,
+  );
   assert.match(html, /<header class="site-header">/);
   assert.match(html, /<main(?:\s|>)/);
-  assert.match(html, /type="application\/ld\+json"/);
-  assert.match(html, /"@type":"Person"/);
+  assert.equal(
+    (html.match(/type="application\/ld\+json"/g) ?? []).length,
+    2,
+  );
+  assert.match(html, /"@type":"WebSite"/);
+  assert.match(html, /"alternateName":\["Xenia Jiang Academic Homepage","WitchTide","巫语潮信"\]/);
+  assert.match(html, /"@type":"ProfilePage"/);
+  assert.match(html, /"mainEntity":\{"@type":"Person"/);
+  assert.match(html, /"alternateName":\["姜浸月"\]/);
+  assert.match(
+    html,
+    /"description":"Xenia Jiang \(姜浸月\) is a sociology and gender researcher at Peking University and the independent writer behind WitchTide \(巫语潮信\)\."/,
+  );
   assert.match(
     html,
     /"sameAs":\["https:\/\/orcid\.org\/0009-0002-0618-451X","https:\/\/www\.linkedin\.com\/in\/xenia-jiang\/"\]/,
@@ -78,6 +114,24 @@ test("server-renders the academic homepage structure", async () => {
   assert.match(html, /Selected Writing/);
   assert.match(html, /Why We Should Be Wary of/);
   assert.match(html, /writing-row is-linked themed-item is-featured/);
+  assert.equal((html.match(/class="writing-primary-link"/g) ?? []).length, 11);
+  assert.equal(
+    (html.match(/class="writing-primary-link is-disabled"/g) ?? []).length,
+    0,
+  );
+  assert.doesNotMatch(html, /writing-translation-link/);
+  assert.doesNotMatch(html, /writing-original-link|>Original</);
+  assert.match(html, /aria-label="Writing language"/);
+  assert.match(html, /aria-pressed="true">EN</);
+  assert.match(
+    html,
+    /href="\/writing\/masculine-feminism\/" class="writing-primary-link"/,
+  );
+  assert.doesNotMatch(html, /writing-primary-link is-disabled/);
+  assert.ok(
+    html.indexOf("A Work of “Pure Fiction”") <
+      html.indexOf("Between Silence and Silence"),
+  );
   assert.match(html, /id="biography"/);
   const desktopNavigation = html.match(
     /<nav class="desktop-nav"[\s\S]*?<\/nav>/,
@@ -93,6 +147,140 @@ test("server-renders the academic homepage structure", async () => {
   assert.doesNotMatch(html, /<footer\b/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
   assert.doesNotMatch(html, />Methods</i);
+});
+
+test("server-renders the writing translation pages", async () => {
+  const translated = await render("/writing/masculine-feminism");
+  assert.equal(translated.status, 200);
+  const translatedHtml = await translated.text();
+  assert.match(
+    translatedHtml,
+    /Why We Should Be Wary of [^<]*Masculine Feminism/,
+  );
+  assert.match(translatedHtml, /Masculine Feminism and/);
+  assert.match(translatedHtml, /Serano explicitly issues/);
+  assert.match(
+    translatedHtml,
+    /href="\/#writing-masculinist-feminism"[^>]*>[^<]*Selected Writing/,
+  );
+  assert.equal(
+    (
+      translatedHtml.match(
+        /href="\/#writing-masculinist-feminism"[^>]*>[^<]*Selected Writing/g,
+      ) ?? []
+    ).length,
+    2,
+  );
+  assert.doesNotMatch(translatedHtml, /class="translation-status"/);
+
+  const xingzhi = await render("/writing/xingzhi-translation");
+  assert.equal(xingzhi.status, 200);
+  const xingzhiHtml = await xingzhi.text();
+  assert.match(xingzhiHtml, /A Finger Points, a Life Assigned/);
+  assert.match(xingzhiHtml, /性指 contains the idea of assignment/);
+  assert.doesNotMatch(xingzhiHtml, /class="translation-status"/);
+  assert.doesNotMatch(xingzhiHtml, /freely reposted|\[\[IMAGE\]\]/);
+
+  const layers = await render("/writing/layers-of-gender");
+  assert.equal(layers.status, 200);
+  const layersHtml = await layers.text();
+  assert.match(layersHtml, /How Many Layers Does/);
+  assert.match(layersHtml, /class="article-figure"/);
+  assert.match(layersHtml, /Gendered Appearance &amp; Readability/);
+  assert.doesNotMatch(layersHtml, /class="translation-status"/);
+
+  const bodyTheory = await render("/writing/body-theory-toolbox");
+  assert.equal(bodyTheory.status, 200);
+  const bodyTheoryHtml = await bodyTheory.text();
+  assert.match(bodyTheoryHtml, /Remapping the Felt Topography of Trans Embodiment/);
+  assert.match(bodyTheoryHtml, /I propose nine exploratory criteria/);
+  assert.match(bodyTheoryHtml, /Gender Identity, the Sexed Body/);
+  assert.doesNotMatch(bodyTheoryHtml, /class="translation-status"/);
+  assert.doesNotMatch(bodyTheoryHtml, /representative popular illustration|classic essay on feminine bodily phenomenology/);
+
+  const nanniang = await render("/writing/nanniang-no-future");
+  assert.equal(nanniang.status, 200);
+  const nanniangHtml = await nanniang.text();
+  assert.match(nanniangHtml, /Nanniang, No Future, and Anthropology/);
+  assert.match(nanniangHtml, /<h3>Nanniang<\/h3>/);
+  assert.match(nanniangHtml, /Institutions are rigid; human lives can be remarkably supple/);
+  assert.doesNotMatch(nanniangHtml, /class="translation-status"/);
+
+  const dress = await render("/writing/dress-gender-reading");
+  assert.equal(dress.status, 200);
+  const dressHtml = await dress.text();
+  assert.match(dressHtml, /Using Machine Learning to Open the Black Box of Gender Reading/);
+  assert.match(dressHtml, /Whether a body is read consistently/);
+  assert.match(dressHtml, /binary classificatory gaze/);
+  assert.match(dressHtml, /Chinese ergonomic standards published in 2023/);
+  assert.equal(
+    (dressHtml.match(/class="article-figure/g) ?? []).length,
+    5,
+  );
+  assert.match(dressHtml, /01-model-flow\.png/);
+  assert.match(dressHtml, /05-model-boundary-pca\.png/);
+  assert.doesNotMatch(dressHtml, /class="translation-status"/);
+
+  const makeup = await render("/writing/makeup-and-norms");
+  assert.equal(makeup.status, 200);
+  const makeupHtml = await makeup.text();
+  assert.match(
+    makeupHtml,
+    /I Want to Wear Makeup, but Wanting It Is Not “Progressive”/,
+  );
+  assert.match(makeupHtml, /Why Desire Turns Toward Norms/);
+  assert.match(makeupHtml, /norm-oriented desire/);
+  assert.match(makeupHtml, /Andrea Long Chu/);
+  assert.doesNotMatch(makeupHtml, /class="translation-status"/);
+  assert.doesNotMatch(makeupHtml, />Image</);
+
+  const tefu = await render("/writing/tefu-temple");
+  assert.equal(tefu.status, 200);
+  const tefuHtml = await tefu.text();
+  assert.match(tefuHtml, /A Work of “Pure Fiction”/);
+  assert.match(tefuHtml, /A Trans Woman at the Gates of the Temple of TERF/);
+  assert.match(tefuHtml, /affective commons/);
+  assert.doesNotMatch(tefuHtml, /class="translation-status"/);
+  assert.doesNotMatch(tefuHtml, />Image</);
+
+  const silence = await render("/writing/between-silence-and-silence");
+  assert.equal(silence.status, 200);
+  const silenceHtml = await silence.text();
+  assert.match(silenceHtml, /Between Silence and Silence/);
+  assert.match(
+    silenceHtml,
+    /Lesbian Subjectivity and Micro-Resistance in <em>Shanghai Lalas<\/em>/,
+  );
+  assert.match(silenceHtml, /Since marriage is not a simple matter of love/);
+  assert.match(silenceHtml, /A single woman usually gives others the impression/);
+  assert.match(
+    silenceHtml,
+    /IV\. The Micro-Level Mechanisms of the Private Sphere/,
+  );
+  assert.match(
+    silenceHtml,
+    /VII\. Collective Agency: The Formation and Activities of Shanghai Lala Communities/,
+  );
+  assert.doesNotMatch(silenceHtml, /还有什么必须要改的吗/);
+
+  const transDisqualified = await render("/writing/trans-disqualified");
+  assert.equal(transDisqualified.status, 200);
+  const transDisqualifiedHtml = await transDisqualified.text();
+  assert.match(transDisqualifiedHtml, /No Longer Hu\(Wo\)man/);
+  assert.match(transDisqualifiedHtml, /I’m Sorry for Being Trans/);
+  assert.match(transDisqualifiedHtml, /Experience is not up for debate/);
+  assert.doesNotMatch(transDisqualifiedHtml, /\[Image:|Stage production/);
+  assert.doesNotMatch(transDisqualifiedHtml, /class="translation-status"/);
+
+  const sourLemon = await render("/writing/imagined-bad-money");
+  assert.equal(sourLemon.status, 200);
+  const sourLemonHtml = await sourLemon.text();
+  assert.match(sourLemonHtml, /The Imagined Sour Lemon/);
+  assert.match(sourLemonHtml, /Accusations of “Hyper-Femininity,”/);
+  assert.match(sourLemonHtml, /fallback performance/);
+  assert.doesNotMatch(sourLemonHtml, /\[Image\]|class="article-figure"/);
+  assert.doesNotMatch(sourLemonHtml, /class="translation-status"/);
+
 });
 
 test("redirects retired editorial routes to homepage anchors", async () => {
@@ -146,7 +334,7 @@ test("keeps editable content centralized and imagery local", async () => {
   );
   assert.doesNotMatch(content, /\[INTRODUCTION TO BE PROVIDED BY XENIA\]/);
   assert.match(content, /Contained Gender Transgression/);
-  assert.match(content, /The Imagined “Bad Money”/);
+  assert.match(content, /The Imagined Sour Lemon/);
   assert.match(content, /Trans Health & Minority Stress/);
   assert.match(content, /label: "Queer Affect"/);
   assert.match(content, /communities-institutions/);
@@ -175,7 +363,11 @@ test("keeps editable content centralized and imagery local", async () => {
   assert.match(content, /label: "WeChat Platform"/);
   assert.match(content, /value: "WitchTide"/);
   assert.doesNotMatch(content, /typeZh|typeEn/);
-  assert.doesNotMatch(writingList, /titleZh|subtitleZh/);
+  assert.match(writingList, /item\.titleEn : item\.titleZh/);
+  assert.match(writingList, /item\.subtitleEn : item\.subtitleZh/);
+  assert.match(writingList, /item\.translationUrl/);
+  assert.match(writingList, /item\.originalUrl/);
+  assert.doesNotMatch(content, /translationUrl: ""/);
   assert.match(writingList, /const isFeatured = item\.order <= 3/);
   assert.match(writingList, /writing-star/);
   assert.doesNotMatch(backgroundSection, /background-label/);
@@ -185,6 +377,8 @@ test("keeps editable content centralized and imagery local", async () => {
   assert.match(css, /@media \(max-width: 1024px\)/);
   assert.match(css, /@media \(max-width: 700px\)/);
   assert.match(css, /prefers-reduced-motion/);
-  assert.doesNotMatch(css, /@view-transition/);
+  assert.match(css, /@view-transition/);
+  assert.match(css, /page-slide-in-right/);
+  assert.match(css, /page-slide-in-left/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
 });

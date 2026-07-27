@@ -37,7 +37,6 @@ export function ThemedWork({ content }: { content: SiteContent }) {
       />
       <WritingList
         heading="Selected Writing"
-        arrowSymbol={content.interface.arrowSymbol}
         writing={content.selectedWriting}
         activeTheme={activeTheme}
       />
