@@ -382,3 +382,37 @@ test("keeps editable content centralized and imagery local", async () => {
   assert.match(css, /page-slide-in-left/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
 });
+
+test("publishes a canonical production sitemap and robots declaration", async () => {
+  const sitemap = await readFile(
+    new URL("../public/sitemap.xml", import.meta.url),
+    "utf8",
+  );
+  const robots = await readFile(
+    new URL("../public/robots.txt", import.meta.url),
+    "utf8",
+  );
+  const locations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(
+    (match) => match[1],
+  );
+
+  assert.equal(locations.length, 12);
+  assert.equal(new Set(locations).size, locations.length);
+  assert.equal(locations[0], "https://xeniajiang.github.io/");
+  assert.ok(
+    locations.every(
+      (location) =>
+        location.startsWith("https://xeniajiang.github.io/") &&
+        !location.includes("#"),
+    ),
+  );
+  assert.doesNotMatch(sitemap, /<lastmod>|mp\.weixin\.qq\.com/);
+  assert.doesNotMatch(
+    sitemap,
+    /\/(?:about|cv|research|writing|zh)\/<\/loc>/,
+  );
+  assert.match(
+    robots,
+    /^Sitemap: https:\/\/xeniajiang\.github\.io\/sitemap\.xml$/m,
+  );
+});
