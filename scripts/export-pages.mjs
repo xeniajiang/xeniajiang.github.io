@@ -12,6 +12,10 @@ const { default: worker } = await import(workerUrl.href);
 const routes = [
   { requestPath: "/", outputPath: "/" },
   {
+    requestPath: "/writing/xenia-jiang",
+    outputPath: "/writing/xenia-jiang/",
+  },
+  {
     requestPath: "/writing/masculine-feminism",
     outputPath: "/writing/masculine-feminism/",
   },

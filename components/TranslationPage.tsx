@@ -3,6 +3,8 @@ import { siteContent } from "@/src/data/siteContent";
 import { Header } from "./Header";
 import { TransitionLink } from "./TransitionLink";
 
+const profileUrl = siteContent.site.profileMetadata.url;
+
 const articleHeaderContent = {
   ...siteContent,
   navigation: siteContent.navigation.map((item) => ({
@@ -10,6 +12,10 @@ const articleHeaderContent = {
     href: `/${item.href}`,
   })),
 };
+
+function serializeStructuredData(value: object) {
+  return JSON.stringify(value).replace(/</g, "\\u003c");
+}
 
 export function TranslationPage({
   item,
@@ -22,8 +28,34 @@ export function TranslationPage({
   forthcoming?: boolean;
   deck?: React.ReactNode;
 }) {
+  const articleUrl = new URL(
+    item.translationUrl,
+    siteContent.site.homeMetadata.url,
+  ).href;
+  const articleStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${articleUrl}#article`,
+    mainEntityOfPage: articleUrl,
+    headline: item.titleEn,
+    alternativeHeadline: item.subtitleEn,
+    datePublished: item.date,
+    author: {
+      "@type": "Person",
+      "@id": `${siteContent.site.homeMetadata.url}#person`,
+      name: siteContent.person.englishName,
+      url: profileUrl,
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: serializeStructuredData(articleStructuredData),
+        }}
+      />
       <Header content={articleHeaderContent} />
       <main
         className={`article-page${

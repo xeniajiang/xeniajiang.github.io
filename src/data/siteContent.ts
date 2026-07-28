@@ -355,6 +355,13 @@ export const siteContent = {
         "巫语潮信",
       ],
     },
+    profileMetadata: {
+      title:
+        "Xenia Jiang (姜浸月) — Sociology & Gender Research",
+      description:
+        "Xenia Jiang (姜浸月) is a sociology and gender researcher at Peking University and the writer behind WitchTide (巫语潮信), working on gender classification, embodiment, queer identity, minority stress, and trans health.",
+      url: "https://xeniajiang.github.io/writing/xenia-jiang/",
+    },
   },
   person: {
     englishName: "Xenia Jiang",
@@ -370,6 +377,7 @@ export const siteContent = {
     ],
     portrait: "/images/portrait.png",
     portraitAlt: "Portrait of Xenia Jiang",
+    profileHref: "/writing/xenia-jiang/",
   },
   navigation: [
     { label: "Research", href: "#research" },
@@ -396,6 +404,23 @@ export const siteContent = {
     ],
     publicWriterIntroduction:
       "As a Chinese-language public writer, Xenia publishes independently on WeChat through *WitchTide* (巫语潮信).",
+  },
+  profilePage: {
+    kicker: "Research Profile",
+    homeLabel: "← Home",
+    biography: [
+      "Xenia Jiang is a researcher in sociology and gender studies at Peking University. Her work focuses on middle-range mechanisms related to embodied gender expression, gender reading, classification, and minority stress. She is especially concerned with the social settings of identity adoption and (non-)recognition, tracing the gendered social processes and institutions through which identities are formed. Her current research concerns the lived experiences of transgender, gender-nonconforming, and asexual people.",
+      "Trained in statistics at Fudan University, she often uses large-scale social surveys to investigate concrete problems of gender measurement. She challenges cisnormative assumptions built into survey questions and develops interactionist reconstructions of measurement. At the same time, she engages closely with the lived experiences of queer people and cross-dressers in China, examining how their encounters with classification systems are embedded in broader social mechanisms.",
+    ],
+    researchHeading: "Research",
+    writingHeading: "Selected Writing",
+    researchOverviewLead:
+      "This page provides a concise overview of current research.",
+    researchOverviewLabel: "explore the full research section →",
+    researchOverviewHref: "/#research",
+    writingOverviewLead: "This page highlights selected essays.",
+    writingOverviewLabel: "Browse the complete writing archive →",
+    writingOverviewHref: "/#writing",
   },
   research: [
     {

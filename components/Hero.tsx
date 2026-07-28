@@ -9,6 +9,7 @@ type PersonContent = {
   introduction: readonly string[];
   portrait: string;
   portraitAlt: string;
+  profileHref: string;
 };
 
 export function Hero({
@@ -33,7 +34,9 @@ export function Hero({
       </div>
       <div className="hero-identity">
         <h1 className="hero-title" id="hero-title">
-          {person.englishName}
+          <a className="hero-title-link" href={person.profileHref}>
+            {person.englishName}
+          </a>
         </h1>
         <p className="hero-chinese-name" lang="zh-CN">
           {person.chineseName}

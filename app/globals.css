@@ -812,6 +812,162 @@ img {
   line-height: 0.98;
 }
 
+.hero-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.profile-kicker {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.profile-home-link {
+  display: inline-block;
+  margin-bottom: 0.25rem;
+}
+
+.profile-page .article-shell {
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.profile-header {
+  padding-top: clamp(1.75rem, 3.5vw, 2.75rem);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.profile-header h1 {
+  font-size: clamp(2.1rem, 4.3vw, 3.7rem);
+}
+
+.profile-body {
+  padding-top: clamp(1.75rem, 3.5vw, 2.75rem);
+}
+
+.profile-deck span {
+  display: block;
+}
+
+.profile-deck span + span {
+  margin-top: 0.15rem;
+}
+
+.profile-biography p + p {
+  margin-top: 1.35rem;
+}
+
+.profile-section > h2 {
+  margin-top: clamp(4.5rem, 9vw, 7.5rem);
+}
+
+.profile-section-introduction {
+  max-width: 44rem;
+}
+
+.profile-section-guide {
+  max-width: 44rem;
+  margin-top: 1.35rem !important;
+  color: var(--muted);
+}
+
+.profile-section-guide a {
+  color: var(--accent);
+  text-underline-offset: 0.2em;
+}
+
+.profile-research-list,
+.profile-writing-list {
+  margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+  padding: 0;
+}
+
+.profile-research-entry {
+  padding: clamp(1.75rem, 3vw, 2.5rem) 0;
+  border-top: 1px solid var(--line);
+}
+
+.profile-entry-number {
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+}
+
+.article-body .profile-research-entry h3 {
+  margin: 0.5rem 0 0;
+}
+
+.profile-entry-subtitle {
+  margin-top: 0.35rem !important;
+  color: var(--muted);
+  font-size: 0.94em;
+  line-height: 1.55;
+}
+
+.profile-entry-status {
+  margin-top: 0.8rem !important;
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.profile-entry-status + p,
+.profile-entry-subtitle + p {
+  margin-top: 1rem !important;
+}
+
+.profile-writing-list {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-left: 0;
+  list-style: none;
+}
+
+.profile-writing-entry {
+  display: grid;
+  grid-template-columns: 2.6rem minmax(0, 1fr);
+  gap: 0.8rem;
+  padding: 1.25rem 0 1.4rem;
+  border-top: 1px solid var(--line);
+}
+
+.profile-writing-number {
+  padding-top: 0.12rem;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+}
+
+.profile-writing-copy {
+  display: block;
+}
+
+.profile-writing-title {
+  display: block;
+  color: var(--accent);
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.profile-writing-subtitle {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.profile-writing-entry + .profile-writing-entry {
+  margin-top: 0;
+}
 .article-deck {
   max-width: 42rem;
   margin: 1rem 0 0;

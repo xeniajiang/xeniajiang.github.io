@@ -51,6 +51,8 @@ next-env.d.ts
 /local-preview.err.log
 /local-production-preview.log
 /local-production-preview.err.log
+/local-profile-preview.log
+/local-profile-preview.err.log
 
 # local-only Chinese edition and review copy
 /app/zh/

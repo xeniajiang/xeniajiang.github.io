@@ -74,7 +74,10 @@ test("server-renders the academic homepage structure", async () => {
     html,
     /"sameAs":\["https:\/\/orcid\.org\/0009-0002-0618-451X","https:\/\/www\.linkedin\.com\/in\/xenia-jiang\/"\]/,
   );
-  assert.match(html, /<h1 class="hero-title"[^>]*>Xenia Jiang<\/h1>/);
+  assert.match(
+    html,
+    /<h1 class="hero-title"[^>]*><a class="hero-title-link" href="\/writing\/xenia-jiang\/">Xenia Jiang<\/a><\/h1>/,
+  );
   assert.match(html, /姜浸月/);
   assert.match(html, /Peking University/i);
   assert.match(html, /id="research"/);
@@ -162,6 +165,11 @@ test("server-renders the writing translation pages", async () => {
   assert.match(
     translatedHtml,
     /href="\/#writing-masculinist-feminism"[^>]*>[^<]*Selected Writing/,
+  );
+  assert.match(translatedHtml, /"@type":"Article"/);
+  assert.match(
+    translatedHtml,
+    /"author":\{"@type":"Person","@id":"https:\/\/xeniajiang\.github\.io\/#person","name":"Xenia Jiang","url":"https:\/\/xeniajiang\.github\.io\/writing\/xenia-jiang\/"\}/,
   );
   assert.equal(
     (
@@ -383,6 +391,90 @@ test("keeps editable content centralized and imagery local", async () => {
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
 });
 
+test("server-renders the linear indexable profile page", async () => {
+  const response = await render("/writing/xenia-jiang");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+
+  assert.match(
+    html,
+    /<title>Xenia Jiang \(姜浸月\) — Sociology &amp; Gender Research<\/title>/,
+  );
+  assert.match(
+    html,
+    /<meta name="description" content="Xenia Jiang \(姜浸月\) is a sociology and gender researcher at Peking University and the writer behind WitchTide \(巫语潮信\), working on gender classification, embodiment, queer identity, minority stress, and trans health\."\/>/,
+  );
+  assert.match(
+    html,
+    /<link rel="canonical" href="https:\/\/xeniajiang\.github\.io\/writing\/xenia-jiang\/"\/>/,
+  );
+  assert.match(html, /<meta name="robots" content="index, follow"\/>/);
+  assert.match(html, />Research Profile<\/p>/);
+  assert.match(
+    html,
+    /<h1>Xenia Jiang<!-- --> <span aria-hidden="true">\/<\/span> <span lang="zh-CN">姜浸月<\/span><\/h1>/,
+  );
+  assert.match(html, /Sociology and Gender Researcher/);
+  assert.match(html, /Peking University/);
+  assert.match(html, /Xenia Jiang is a researcher in sociology and gender studies/);
+  assert.match(
+    html,
+    /Trained in statistics at Fudan University, she often uses large-scale social surveys/,
+  );
+  assert.match(
+    html,
+    /<a class="article-back profile-home-link" href="\/">← Home<\/a>/,
+  );
+  assert.doesNotMatch(html, /class="profile-portrait"/);
+  assert.match(html, /Her research agenda places body sizing, queer shame/);
+  assert.match(html, /As a Chinese-language public writer, Xenia publishes independently/);
+  assert.equal(
+    (html.match(/class="profile-research-entry"/g) ?? []).length,
+    6,
+  );
+  assert.equal(
+    (html.match(/class="profile-writing-entry"/g) ?? []).length,
+    6,
+  );
+  assert.match(html, /Accepted for presentation at the WPATH Scientific Symposium, 2026/);
+  assert.match(html, /Accepted for presentation at the American Anthropological Association Annual Meeting, 2026/);
+  assert.match(html, /<h2 id="profile-writing">Selected Writing<\/h2>/);
+  assert.match(
+    html,
+    /<span class="profile-writing-number"[^>]*>01<\/span><span class="profile-writing-copy"><span class="profile-writing-title">Why We Should Be Wary of “Masculine Feminism”<\/span><span class="profile-writing-subtitle">On Bottom Shame and Transmisogyny<\/span>/,
+  );
+  assert.match(
+    html,
+    /<span class="profile-writing-number"[^>]*>02<\/span><span class="profile-writing-copy"><span class="profile-writing-title">How Many Layers Does “Gender” Have\?<\/span><span class="profile-writing-subtitle">A Conceptual Map of How We Understand Our Own Gender<\/span>/,
+  );
+  assert.match(
+    html,
+    /<span class="profile-writing-number"[^>]*>03<\/span><span class="profile-writing-copy"><span class="profile-writing-title">A Finger Points, a Life Assigned<\/span><span class="profile-writing-subtitle">A Proposal to Translate Sex as 性指 \(xingzhi\)<\/span>/,
+  );
+  assert.doesNotMatch(
+    html,
+    /class="profile-writing-entry"[\s\S]*?href="\/writing\//,
+  );
+  assert.match(
+    html,
+    /This page provides a concise overview of current research\.(?:<!-- -->)?\s*<a href="\/#research">explore the full research section →<\/a>/,
+  );
+  assert.match(
+    html,
+    /This page highlights selected essays\.(?:<!-- -->)?\s*<a href="\/#writing">Browse the complete writing archive →<\/a>/,
+  );
+  assert.match(html, /"@type":"ProfilePage"/);
+  assert.match(html, /"@id":"https:\/\/xeniajiang\.github\.io\/#person"/);
+  assert.match(
+    html,
+    /"sameAs":\["https:\/\/orcid\.org\/0009-0002-0618-451X","https:\/\/www\.linkedin\.com\/in\/xenia-jiang\/"\]/,
+  );
+  assert.doesNotMatch(
+    html,
+    /Show details|Writing language|theme-filter|id="background"|background-columns/,
+  );
+});
+
 test("publishes a canonical production sitemap and robots declaration", async () => {
   const sitemap = await readFile(
     new URL("../public/sitemap.xml", import.meta.url),
@@ -396,9 +488,14 @@ test("publishes a canonical production sitemap and robots declaration", async ()
     (match) => match[1],
   );
 
-  assert.equal(locations.length, 12);
+  assert.equal(locations.length, 13);
   assert.equal(new Set(locations).size, locations.length);
   assert.equal(locations[0], "https://xeniajiang.github.io/");
+  assert.ok(
+    locations.includes(
+      "https://xeniajiang.github.io/writing/xenia-jiang/",
+    ),
+  );
   assert.ok(
     locations.every(
       (location) =>
