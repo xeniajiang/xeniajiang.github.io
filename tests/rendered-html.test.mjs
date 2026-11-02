@@ -158,7 +158,7 @@ test("server-renders the academic homepage structure", async () => {
   assert.match(html, /<h2 class="section-heading">Game Design<\/h2>/);
   assert.match(html, /dress-up!/);
   assert.match(html, /酷酷衣柜/);
-  assert.match(html, /Redoing Render/);
+  assert.match(html, /Redoing Gender/);
   assert.match(html, /衣言未定/);
   assert.match(html, /https:\/\/dress-up\.witchtide\.workers\.dev\//);
   assert.match(html, /https:\/\/redoing-gender\.pages\.dev\//);
@@ -396,7 +396,7 @@ test("keeps editable content centralized and imagery local", async () => {
   assert.match(content, /primary: "Peking University"/);
   assert.match(content, /gameDesign: \[/);
   assert.match(content, /title: "dress-up!"/);
-  assert.match(content, /title: "Redoing Render"/);
+  assert.match(content, /title: "Redoing Gender"/);
   assert.match(
     content,
     /"Graduate Student · Trained in Sociology and Gender Studies"/,

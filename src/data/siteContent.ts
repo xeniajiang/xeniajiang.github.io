@@ -586,22 +586,22 @@ export const siteContent = {
       title: "dress-up!",
       titleZh: "酷酷衣柜",
       description:
-        "A game about gender presentation, identity reading, and social interaction. Players assemble and disrupt public identities, presentations, Joy, and social environments before revealing their hidden goals at the end of play.",
+        "dress-up! explores the pleasures and frictions of becoming legible to others. Clothing, pronouns, desire, and recognition do not always align, and every encounter can affirm, unsettle, or remake a public identity.",
       href: "https://dress-up.witchtide.workers.dev/",
       image: "/images/game-design/dress-up.webp?v=2026-11-02-2",
       imageAlt:
         "dress-up! card game arranged on a dark tabletop with colorful clothing cards and tokens",
     },
     {
-      id: "redoing-render",
-      title: "Redoing Render",
+      id: "redoing-gender",
+      title: "Redoing Gender",
       titleZh: "衣言未定",
       description:
-        "A game about how clothing categories and gender norms are made, contested, and stabilized. Players draft garments, assemble looks, establish or challenge norms, and compete for the authority to define womenswear, menswear, and gender-neutral dress.",
+        "Who gets to decide what counts as womenswear, menswear, or gender-neutral dress? Redoing Gender treats the wardrobe as a contested social world, where categories take hold, shift, and sometimes come apart.",
       href: "https://redoing-gender.pages.dev/",
       image: "/images/game-design/redoing-render.webp?v=2026-11-02-2",
       imageAlt:
-        "Redoing Render tabletop prototype with garment cards, category cards, score tracks, and game tokens",
+        "Redoing Gender tabletop prototype with garment cards, category cards, score tracks, and game tokens",
     },
   ] satisfies GameDesignItem[],
   dialoguesAndTranslations: [
