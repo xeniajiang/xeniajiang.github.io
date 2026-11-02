@@ -435,11 +435,11 @@ export const siteContent = {
     {
       id: "re-situating-gender-nonconformity",
       number: "01",
-      title: "Re-situating Gender Nonconformity",
+      title: "Same Expression, Opposite Associations",
       subtitle:
-        "Reference Points, Life Stage, and SOGIE Measurement in Health Disparities Research",
+        "Queering the Measurement of Gender Nonconformity",
       description:
-        "Situated GNC reframes gender nonconformity along two distinct dimensions: gender reference point and life stage. It challenges the routine use of assigned gender as the default reference for adult GNC measurement and advances perceived-reference GNC as an interactionally grounded alternative for transgender and nonbinary health research.",
+        "Using TransPop, a national probability sample of 274 U.S. transgender and nonbinary adults, this study compares assigned-reference and perceived-reference measures of gender nonconformity. The same expression data produce opposite associations with nonaffirmation and well-being depending on the gender reference point used, showing that gender nonconformity is relational rather than a fixed attribute of expression. The study argues that queer quantitative measurement should treat the reference relation as part of the construct instead of allowing assigned status to perform the classificatory work in advance.",
       href: "#research-situated-gender-nonconformity",
       themes:
         researchThemeAnnotations["re-situating-gender-nonconformity"],
@@ -470,11 +470,11 @@ export const siteContent = {
     {
       id: "transgender-height",
       number: "04",
-      title:
-        "Height, Internalized Stigma, and Embodied Constraints in Transgender Lives",
-      subtitle: "Evidence from a Large-Scale Survey in China",
+      title: "The Social Weight of Height",
+      subtitle:
+        "Gender Recognition and Hormone Use among Transgender People in China",
       description:
-        "Height is approached here as part of the social organization of embodiment, not as a neutral physical attribute. The study examines how it conditions gender expression, public appearance, and the ways transgender bodies are read and constrained in everyday interaction. It further traces how these embodied constraints become internalized and translated into patterned mental-health vulnerability among transgender women, transgender men, and nonbinary people.",
+        "Using China’s 2021 cross-sectional transgender health survey, this study examines how height relates to everyday gender recognition, hormone use, healthcare encounters, and anxiety among 4,297 respondents with male or female primary gender identities. Greater relative height is associated with less nonaffirmation and fewer gender-expression constraints among trans men; among trans women, it is associated with lower hormone use, more reported discouragement from healthcare professionals, and higher anxiety. The findings show how bodily characteristics acquire gendered meanings in interaction and care, extending Global South transgender health research beyond psychological well-being alone.",
       href: "#research-trans-height",
       themes: researchThemeAnnotations["transgender-height"],
     },
@@ -493,11 +493,11 @@ export const siteContent = {
     {
       id: "asexuality-and-qpr",
       number: "06",
-      title: "Asexuality and QPR in China",
+      title: "Naming and Negotiating Intimacy",
       subtitle:
-        "Community Vocabularies, Negotiation Tools, and Staircase-like Outward Naming",
+        "Queerplatonic Relationships in Mainland China",
       description:
-        "How do asexual and QPR participants in China build relationships when available language does not quite fit? Based on in-depth interviews, this study traces how participants encounter QPR and asexual vocabularies through community networks, then test, reshape, or refuse the scripts these terms carry. Some turn these resources into relationship practices through tables and explicit negotiation. In a context where care, medical decision-making, property, and kinship rights remain organized around marriage and legal family, participants develop staircase-like outward naming practices to make their relationships differently legible across intimate, familial, communal, and institutional settings.",
+        "Drawing on semi-structured interviews with 11 people on the asexual spectrum, this study examines how QPR concepts are interpreted, adopted, and negotiated in mainland China. Participants use relational labels flexibly to reinterpret past experiences, assemble intimate arrangements beyond fixed friendship–romance distinctions, and imagine futures outside marriage-centered timelines. Across familial, communal, and institutional settings, they use selective disclosure and context-specific descriptions to seek recognition, care, and mutual support while queer communities both enable and regulate these possibilities.",
       href: "#research-queerplatonic-relationships-and-asexual-intimacy",
       themes: researchThemeAnnotations["asexuality-and-qpr"],
     },
@@ -522,7 +522,7 @@ export const siteContent = {
     },
     {
       number: "03",
-      projectTitle: "Asexuality and QPR in China",
+      projectTitle: "Naming and Negotiating Intimacy",
       conference: "International Conference on Gender and Sexuality 2026",
       date: "December 1–2, 2026",
       location: "Hong Kong Baptist University, Hong Kong",
@@ -530,7 +530,7 @@ export const siteContent = {
     },
     {
       number: "04",
-      projectTitle: "Re-situating Gender Nonconformity",
+      projectTitle: "Same Expression, Opposite Associations",
       conference: "XXI ISA World Congress of Sociology",
       date: "July 4–10, 2027",
       location: "Gwangju, Republic of Korea",
@@ -538,8 +538,7 @@ export const siteContent = {
     },
     {
       number: "05",
-      projectTitle:
-        "Height, Internalized Stigma, and Embodied Constraints in Transgender Lives",
+      projectTitle: "The Social Weight of Height",
       conference: "XXI ISA World Congress of Sociology",
       date: "July 4–10, 2027",
       location: "Gwangju, Republic of Korea",

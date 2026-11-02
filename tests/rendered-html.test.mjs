@@ -106,10 +106,14 @@ test("server-renders the academic homepage structure", async () => {
     (html.match(/class="conference-status">Submitted<\/p>/g) ?? []).length,
     2,
   );
-  assert.match(html, /Re-situating Gender Nonconformity/);
+  assert.match(html, /Same Expression, Opposite Associations/);
   assert.match(
     html,
-    /Height, Internalized Stigma, and Embodied Constraints in Transgender Lives/,
+    /The Social Weight of Height/,
+  );
+  assert.match(
+    html,
+    /Gender Recognition and Hormone Use among Transgender People in China/,
   );
   assert.match(html, /WPATH Scientific Symposium 2026/);
   assert.match(
@@ -120,7 +124,8 @@ test("server-renders the academic homepage structure", async () => {
     html,
     /International Conference on Gender and Sexuality 2026/,
   );
-  assert.match(html, /Asexuality and QPR in China/);
+  assert.match(html, /Naming and Negotiating Intimacy/);
+  assert.match(html, /Queerplatonic Relationships in Mainland China/);
   const agendaStatement =
     "Her research agenda places body sizing, queer shame, queer identity adoption";
   assert.ok(html.indexOf(agendaStatement) > html.indexOf('id="research"'));
