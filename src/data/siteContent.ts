@@ -590,7 +590,7 @@ export const siteContent = {
       description:
         "A game about gender presentation, identity reading, and social interaction. Players assemble and disrupt public identities, presentations, Joy, and social environments before revealing their hidden goals at the end of play.",
       href: "https://dress-up.witchtide.workers.dev/",
-      image: "/images/game-design/dress-up.webp",
+      image: "/images/game-design/dress-up.webp?v=2026-11-02-2",
       imageAlt:
         "dress-up! card game arranged on a dark tabletop with colorful clothing cards and tokens",
     },
@@ -602,7 +602,7 @@ export const siteContent = {
       description:
         "A game about how clothing categories and gender norms are made, contested, and stabilized. Players draft garments, assemble looks, establish or challenge norms, and compete for the authority to define womenswear, menswear, and gender-neutral dress.",
       href: "https://redoing-gender.pages.dev/",
-      image: "/images/game-design/redoing-render.webp",
+      image: "/images/game-design/redoing-render.webp?v=2026-11-02-2",
       imageAlt:
         "Redoing Render tabletop prototype with garment cards, category cards, score tracks, and game tokens",
     },
