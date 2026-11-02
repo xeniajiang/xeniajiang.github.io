@@ -447,54 +447,81 @@ img {
 
 .conferences-section {
   scroll-margin-top: 7rem;
-  padding-top: clamp(4.25rem, 7vw, 6.25rem);
+  padding-top: clamp(3.5rem, 6vw, 5.25rem);
 }
 
 .conference-list {
-  width: 88%;
-  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-block: 1px solid var(--line);
 }
 
 .conference-row {
-  display: grid;
-  grid-template-columns: 7rem minmax(0, 1fr);
-  align-items: center;
-  min-height: 104px;
-  border-bottom: 1px solid var(--line);
+  display: flex;
+  min-width: 0;
+  min-height: 238px;
+  padding: 1.45rem clamp(1.25rem, 2.6vw, 2.4rem) 1.55rem;
+  flex-direction: column;
+}
+
+.conference-row:not(:nth-child(3n + 1)) {
+  border-left: 1px solid var(--line);
+}
+
+.conference-row:nth-child(n + 4) {
+  border-top: 1px solid var(--line);
+}
+
+.conference-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.conference-date,
+.conference-number {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.conference-date {
+  color: var(--accent);
+  font-weight: 500;
 }
 
 .conference-number {
   color: var(--accent-soft);
-  font-size: clamp(2rem, 3vw, 3rem);
-  font-variant-numeric: lining-nums;
-  line-height: 1;
-}
-
-.conference-copy {
-  min-width: 0;
-  padding: 1.2rem 12% 1.25rem 0;
-}
-
-.conference-project,
-.conference-event,
-.conference-status {
-  display: block;
 }
 
 .conference-project {
-  font-size: clamp(1.08rem, 1.45vw, 1.3rem);
-  line-height: 1.3;
+  margin: 1.35rem 0 0;
+  font-size: clamp(1.12rem, 1.45vw, 1.35rem);
+  font-weight: 400;
+  line-height: 1.28;
 }
 
 .conference-event {
-  margin-top: 0.25rem;
+  margin: 0.55rem 0 0;
   color: var(--muted);
   font-size: 0.92rem;
-  line-height: 1.5;
+  line-height: 1.48;
+}
+
+.conference-location {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  line-height: 1.45;
 }
 
 .conference-status {
-  margin-top: 0.35rem;
+  margin: auto 0 0;
+  padding-top: 1.25rem;
   color: var(--accent);
   font-family: var(--sans);
   font-size: 0.72rem;
@@ -964,6 +991,31 @@ img {
   font-family: var(--sans);
   font-size: 0.76rem;
   line-height: 1.5;
+}
+
+.profile-conference-date {
+  margin-top: 0.55rem !important;
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 0.76rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.45;
+}
+
+.profile-conference-date + .profile-conference-status {
+  margin-top: 0.3rem !important;
+}
+
+.profile-conference-location {
+  margin-top: 0.25rem !important;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+.profile-conference-location + .profile-conference-status {
+  margin-top: 0.3rem !important;
 }
 
 .profile-entry-subtitle + p {
@@ -1556,28 +1608,35 @@ img {
   }
 
   .conference-list {
-    width: 100%;
+    grid-template-columns: 1fr;
   }
 
   .conference-row {
-    grid-template-columns: 3.35rem minmax(0, 1fr);
-    min-height: 96px;
+    min-height: 0;
+    padding: 1.25rem 0 1.35rem;
   }
 
-  .conference-number {
-    font-size: 1.7rem;
+  .conference-row:not(:first-child) {
+    border-top: 1px solid var(--line);
+    border-left: 0;
   }
 
-  .conference-copy {
-    padding: 1.1rem 0.75rem 1.15rem 0;
+  .conference-row:first-child {
+    border-left: 0;
   }
 
   .conference-project {
+    margin-top: 0.9rem;
     font-size: 1rem;
   }
 
   .conference-event {
     font-size: 0.84rem;
+  }
+
+  .conference-status {
+    margin-top: 0.9rem;
+    padding-top: 0;
   }
 
   .research-number,

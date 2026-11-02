@@ -13,14 +13,16 @@ export function Conferences({
       <div className="conference-list">
         {conferences.map((item) => (
           <article className="conference-row" key={item.number}>
-            <span className="conference-number" aria-hidden="true">
-              {item.number}
-            </span>
-            <span className="conference-copy">
-              <span className="conference-project">{item.projectTitle}</span>
-              <span className="conference-event">{item.conference}</span>
-              <span className="conference-status">{item.status}</span>
-            </span>
+            <div className="conference-meta">
+              <time className="conference-date">{item.date}</time>
+              <span className="conference-number" aria-hidden="true">
+                {item.number}
+              </span>
+            </div>
+            <h3 className="conference-project">{item.projectTitle}</h3>
+            <p className="conference-event">{item.conference}</p>
+            <p className="conference-location">{item.location}</p>
+            <p className="conference-status">{item.status}</p>
           </article>
         ))}
       </div>

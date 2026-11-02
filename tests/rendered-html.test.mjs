@@ -95,7 +95,22 @@ test("server-renders the academic homepage structure", async () => {
   assert.match(html, />All<\/button>/);
   assert.doesNotMatch(html, /class="current-band"/);
   assert.match(html, /<h2 class="section-heading">Conferences<\/h2>/);
-  assert.equal((html.match(/class="conference-row"/g) ?? []).length, 3);
+  assert.equal((html.match(/class="conference-row"/g) ?? []).length, 5);
+  assert.ok(html.indexOf("Conferences") < html.indexOf("Research Keywords"));
+  assert.match(html, /November 7–12, 2026/);
+  assert.match(html, /November 18–22, 2026/);
+  assert.match(html, /December 1–2, 2026/);
+  assert.match(html, /July 4–10, 2027/);
+  assert.match(html, /Gwangju, Republic of Korea/);
+  assert.equal(
+    (html.match(/class="conference-status">Submitted<\/p>/g) ?? []).length,
+    2,
+  );
+  assert.match(html, /Re-situating Gender Nonconformity/);
+  assert.match(
+    html,
+    /Height, Internalized Stigma, and Embodied Constraints in Transgender Lives/,
+  );
   assert.match(html, /WPATH Scientific Symposium 2026/);
   assert.match(
     html,
@@ -109,8 +124,6 @@ test("server-renders the academic homepage structure", async () => {
   const agendaStatement =
     "Her research agenda places body sizing, queer shame, queer identity adoption";
   assert.ok(html.indexOf(agendaStatement) > html.indexOf('id="research"'));
-  assert.ok(html.indexOf(agendaStatement) < html.indexOf('id="conferences"'));
-  assert.ok(html.indexOf('id="conferences"') < html.indexOf("Research Agendas"));
   assert.ok(html.indexOf(agendaStatement) < html.indexOf("Research Agendas"));
   assert.match(html, /Classification &amp; Gender Reading/);
   assert.match(html, /Computational Methods/);
@@ -444,10 +457,13 @@ test("server-renders the linear indexable profile page", async () => {
   );
   assert.equal(
     (html.match(/class="profile-conference-entry"/g) ?? []).length,
-    3,
+    5,
   );
   assert.match(html, /<h2 id="profile-conferences">Conferences<\/h2>/);
   assert.match(html, /International Conference on Gender and Sexuality/);
+  assert.match(html, /December 1–2, 2026/);
+  assert.match(html, /XXI ISA World Congress of Sociology/);
+  assert.match(html, /Gwangju, Republic of Korea/);
   assert.match(html, /<h2 id="profile-writing">Selected Writing<\/h2>/);
   assert.match(
     html,

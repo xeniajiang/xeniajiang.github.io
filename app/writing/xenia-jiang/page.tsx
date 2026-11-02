@@ -147,6 +147,10 @@ export default function XeniaJiangProfilePage() {
                     <p className="profile-entry-subtitle">
                       {item.conference}
                     </p>
+                    <p className="profile-conference-date">{item.date}</p>
+                    <p className="profile-conference-location">
+                      {item.location}
+                    </p>
                     <p className="profile-conference-status">{item.status}</p>
                   </article>
                 ))}

@@ -28,6 +28,8 @@ export type ConferenceItem = {
   number: string;
   projectTitle: string;
   conference: string;
+  date: string;
+  location: string;
   status: string;
 };
 
@@ -506,19 +508,42 @@ export const siteContent = {
       projectTitle:
         "Minority Stress Pathways and Transgender Mental Health Outcomes",
       conference: "WPATH Scientific Symposium 2026",
+      date: "November 7–12, 2026",
+      location: "Mexico City, Mexico",
       status: "Accepted for presentation",
     },
     {
       number: "02",
       projectTitle: "Contained Gender Transgression",
       conference: "American Anthropological Association Annual Meeting 2026",
+      date: "November 18–22, 2026",
+      location: "St. Louis, Missouri, USA",
       status: "Accepted for presentation",
     },
     {
       number: "03",
       projectTitle: "Asexuality and QPR in China",
       conference: "International Conference on Gender and Sexuality 2026",
+      date: "December 1–2, 2026",
+      location: "Hong Kong Baptist University, Hong Kong",
       status: "Accepted for presentation",
+    },
+    {
+      number: "04",
+      projectTitle: "Re-situating Gender Nonconformity",
+      conference: "XXI ISA World Congress of Sociology",
+      date: "July 4–10, 2027",
+      location: "Gwangju, Republic of Korea",
+      status: "Submitted",
+    },
+    {
+      number: "05",
+      projectTitle:
+        "Height, Internalized Stigma, and Embodied Constraints in Transgender Lives",
+      conference: "XXI ISA World Congress of Sociology",
+      date: "July 4–10, 2027",
+      location: "Gwangju, Republic of Korea",
+      status: "Submitted",
     },
   ] satisfies ConferenceItem[],
   researchAgendas: [

@@ -14,6 +14,10 @@ export function ThemedWork({ content }: { content: SiteContent }) {
 
   return (
     <>
+      <Conferences
+        heading={content.interface.conferencesHeading}
+        conferences={content.conferences}
+      />
       <ThemeIndex
         options={content.themeOptions}
         activeTheme={activeTheme}
@@ -24,10 +28,6 @@ export function ThemedWork({ content }: { content: SiteContent }) {
         projects={content.research}
         statement={content.person.introduction[2]}
         activeTheme={activeTheme}
-      />
-      <Conferences
-        heading={content.interface.conferencesHeading}
-        conferences={content.conferences}
       />
       <ResearchAgendas
         heading={content.interface.researchAgendasHeading}
