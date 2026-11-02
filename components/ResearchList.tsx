@@ -53,9 +53,6 @@ export function ResearchList({
             <span className="research-copy">
               <span className="research-title">{project.title}</span>
               <span className="research-subtitle">{project.subtitle}</span>
-              {project.status && (
-                <span className="research-status">{project.status}</span>
-              )}
               {isDetailed && (
                 <span className="research-description">
                   {project.description}

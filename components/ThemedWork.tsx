@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { SiteContent, ThemeId } from "@/src/data/siteContent";
+import { Conferences } from "./Conferences";
 import { ResearchAgendas } from "./ResearchAgendas";
 import { ResearchList } from "./ResearchList";
 import { TextSection } from "./TextSection";
@@ -23,6 +24,10 @@ export function ThemedWork({ content }: { content: SiteContent }) {
         projects={content.research}
         statement={content.person.introduction[2]}
         activeTheme={activeTheme}
+      />
+      <Conferences
+        heading={content.interface.conferencesHeading}
+        conferences={content.conferences}
       />
       <ResearchAgendas
         heading={content.interface.researchAgendasHeading}

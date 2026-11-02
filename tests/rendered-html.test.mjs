@@ -94,17 +94,23 @@ test("server-renders the academic homepage structure", async () => {
   assert.doesNotMatch(html, />Collapse<\/button>/);
   assert.match(html, />All<\/button>/);
   assert.doesNotMatch(html, /class="current-band"/);
+  assert.match(html, /<h2 class="section-heading">Conferences<\/h2>/);
+  assert.equal((html.match(/class="conference-row"/g) ?? []).length, 3);
+  assert.match(html, /WPATH Scientific Symposium 2026/);
   assert.match(
     html,
-    /Accepted for presentation at the WPATH Scientific Symposium, 2026/,
+    /American Anthropological Association Annual Meeting 2026/,
   );
   assert.match(
     html,
-    /Accepted for presentation at the American Anthropological Association Annual Meeting, 2026/,
+    /International Conference on Gender and Sexuality 2026/,
   );
+  assert.match(html, /Asexuality and QPR in China/);
   const agendaStatement =
     "Her research agenda places body sizing, queer shame, queer identity adoption";
   assert.ok(html.indexOf(agendaStatement) > html.indexOf('id="research"'));
+  assert.ok(html.indexOf(agendaStatement) < html.indexOf('id="conferences"'));
+  assert.ok(html.indexOf('id="conferences"') < html.indexOf("Research Agendas"));
   assert.ok(html.indexOf(agendaStatement) < html.indexOf("Research Agendas"));
   assert.match(html, /Classification &amp; Gender Reading/);
   assert.match(html, /Computational Methods/);
@@ -436,8 +442,12 @@ test("server-renders the linear indexable profile page", async () => {
     (html.match(/class="profile-writing-entry"/g) ?? []).length,
     6,
   );
-  assert.match(html, /Accepted for presentation at the WPATH Scientific Symposium, 2026/);
-  assert.match(html, /Accepted for presentation at the American Anthropological Association Annual Meeting, 2026/);
+  assert.equal(
+    (html.match(/class="profile-conference-entry"/g) ?? []).length,
+    3,
+  );
+  assert.match(html, /<h2 id="profile-conferences">Conferences<\/h2>/);
+  assert.match(html, /International Conference on Gender and Sexuality/);
   assert.match(html, /<h2 id="profile-writing">Selected Writing<\/h2>/);
   assert.match(
     html,

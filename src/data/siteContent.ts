@@ -21,8 +21,14 @@ export type ResearchProject = {
   subtitle: string;
   description: string;
   href: string;
-  status?: string;
   themes?: readonly ThemeId[];
+};
+
+export type ConferenceItem = {
+  number: string;
+  projectTitle: string;
+  conference: string;
+  status: string;
 };
 
 export type ResearchAgenda = {
@@ -393,6 +399,7 @@ export const siteContent = {
     menuOpenLabel: "Close",
     menuClosedLabel: "Menu",
     researchHeading: "Research",
+    conferencesHeading: "Conferences",
     researchAgendasHeading: "Research Agendas",
     translationBackLabel: "← Selected Writing",
     translationForthcomingLabel: "English translation forthcoming.",
@@ -457,8 +464,6 @@ export const siteContent = {
         "Based on the 2021 National Transgender Health Survey in China, covering 7,625 transgender and gender-diverse respondents nationwide, this study examines how the Minority Stress Model travels beyond the North American and European settings in which it was largely developed. Structural equation modeling, Bayesian causal network analysis, and outcome-specific regression models are combined to map the pathways linking minority stress, protective resources, and mental health within China’s sociocultural and institutional context.",
       href: "#research-china-trans-survey-2021",
       themes: researchThemeAnnotations["minority-stress-pathways"],
-      status:
-        "Accepted for presentation at the WPATH Scientific Symposium, 2026",
     },
     {
       id: "transgender-height",
@@ -482,8 +487,6 @@ export const siteContent = {
       href: "#research-contained-gender-transgression-in-luoyang",
       themes:
         researchThemeAnnotations["contained-gender-transgression"],
-      status:
-        "Accepted for presentation at the American Anthropological Association Annual Meeting, 2026",
     },
     {
       id: "asexuality-and-qpr",
@@ -497,6 +500,27 @@ export const siteContent = {
       themes: researchThemeAnnotations["asexuality-and-qpr"],
     },
   ] satisfies ResearchProject[],
+  conferences: [
+    {
+      number: "01",
+      projectTitle:
+        "Minority Stress Pathways and Transgender Mental Health Outcomes",
+      conference: "WPATH Scientific Symposium 2026",
+      status: "Accepted for presentation",
+    },
+    {
+      number: "02",
+      projectTitle: "Contained Gender Transgression",
+      conference: "American Anthropological Association Annual Meeting 2026",
+      status: "Accepted for presentation",
+    },
+    {
+      number: "03",
+      projectTitle: "Asexuality and QPR in China",
+      conference: "International Conference on Gender and Sexuality 2026",
+      status: "Accepted for presentation",
+    },
+  ] satisfies ConferenceItem[],
   researchAgendas: [
     {
       id: "sizing-gender",

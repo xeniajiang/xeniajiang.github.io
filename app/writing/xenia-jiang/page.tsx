@@ -129,10 +129,25 @@ export default function XeniaJiangProfilePage() {
                     <p className="profile-entry-number">{project.number}</p>
                     <h3>{project.title}</h3>
                     <p className="profile-entry-subtitle">{project.subtitle}</p>
-                    {project.status && (
-                      <p className="profile-entry-status">{project.status}</p>
-                    )}
                     <p>{project.description}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section className="profile-section" aria-labelledby="profile-conferences">
+              <h2 id="profile-conferences">
+                {siteContent.interface.conferencesHeading}
+              </h2>
+              <div className="profile-conference-list">
+                {siteContent.conferences.map((item) => (
+                  <article className="profile-conference-entry" key={item.number}>
+                    <p className="profile-entry-number">{item.number}</p>
+                    <h3>{item.projectTitle}</h3>
+                    <p className="profile-entry-subtitle">
+                      {item.conference}
+                    </p>
+                    <p className="profile-conference-status">{item.status}</p>
                   </article>
                 ))}
               </div>
