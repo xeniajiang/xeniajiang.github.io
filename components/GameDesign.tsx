@@ -12,7 +12,7 @@ export function GameDesign({
     <section className="site-shell content-section game-design-section" id="game-design">
       <h2 className="section-heading">{heading}</h2>
       <div className="game-design-grid">
-        {games.map((game, index) => (
+        {games.map((game) => (
           <article className="game-design-item" key={game.id}>
             <a
               className="game-design-link"
@@ -31,12 +31,6 @@ export function GameDesign({
                   unoptimized
                   sizes="(max-width: 700px) 100vw, 46vw"
                 />
-              </span>
-              <span className="game-design-meta">
-                <span className="game-design-number">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <span>{game.format}</span>
               </span>
               <span className="game-design-title-row">
                 <span className="game-design-title">

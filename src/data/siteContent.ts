@@ -37,7 +37,6 @@ export type GameDesignItem = {
   id: string;
   title: string;
   titleZh: string;
-  format: string;
   description: string;
   href: string;
   image: string;
@@ -586,7 +585,6 @@ export const siteContent = {
       id: "dress-up",
       title: "dress-up!",
       titleZh: "酷酷衣柜",
-      format: "Four-player hidden-objective strategy card game",
       description:
         "A game about gender presentation, identity reading, and social interaction. Players assemble and disrupt public identities, presentations, Joy, and social environments before revealing their hidden goals at the end of play.",
       href: "https://dress-up.witchtide.workers.dev/",
@@ -598,7 +596,6 @@ export const siteContent = {
       id: "redoing-render",
       title: "Redoing Render",
       titleZh: "衣言未定",
-      format: "Two-player strategy board game",
       description:
         "A game about how clothing categories and gender norms are made, contested, and stabilized. Players draft garments, assemble looks, establish or challenge norms, and compete for the authority to define womenswear, menswear, and gender-neutral dress.",
       href: "https://redoing-gender.pages.dev/",
