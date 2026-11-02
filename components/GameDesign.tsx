@@ -28,6 +28,7 @@ export function GameDesign({
                   alt={game.imageAlt}
                   width={1600}
                   height={900}
+                  unoptimized
                   sizes="(max-width: 700px) 100vw, 46vw"
                 />
               </span>
