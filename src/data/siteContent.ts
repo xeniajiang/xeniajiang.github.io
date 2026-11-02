@@ -33,6 +33,17 @@ export type ConferenceItem = {
   status: string;
 };
 
+export type GameDesignItem = {
+  id: string;
+  title: string;
+  titleZh: string;
+  format: string;
+  description: string;
+  href: string;
+  image: string;
+  imageAlt: string;
+};
+
 export type ResearchAgenda = {
   id?: string;
   number: string;
@@ -403,6 +414,7 @@ export const siteContent = {
     researchHeading: "Research",
     conferencesHeading: "Conferences",
     researchAgendasHeading: "Research Agendas",
+    gameDesignHeading: "Game Design",
     translationBackLabel: "← Selected Writing",
     translationForthcomingLabel: "English translation forthcoming.",
   },
@@ -569,6 +581,32 @@ export const siteContent = {
   ] satisfies ResearchAgenda[],
   themeOptions,
   selectedWriting,
+  gameDesign: [
+    {
+      id: "dress-up",
+      title: "dress-up!",
+      titleZh: "酷酷衣柜",
+      format: "Four-player hidden-objective strategy card game",
+      description:
+        "A game about gender presentation, identity reading, and social interaction. Players assemble and disrupt public identities, presentations, Joy, and social environments before revealing their hidden goals at the end of play.",
+      href: "https://dress-up.witchtide.workers.dev/",
+      image: "/images/game-design/dress-up.webp",
+      imageAlt:
+        "dress-up! card game arranged on a dark tabletop with colorful clothing cards and tokens",
+    },
+    {
+      id: "redoing-render",
+      title: "Redoing Render",
+      titleZh: "衣言未定",
+      format: "Two-player strategy board game",
+      description:
+        "A game about how clothing categories and gender norms are made, contested, and stabilized. Players draft garments, assemble looks, establish or challenge norms, and compete for the authority to define womenswear, menswear, and gender-neutral dress.",
+      href: "https://redoing-gender.pages.dev/",
+      image: "/images/game-design/redoing-render.webp",
+      imageAlt:
+        "Redoing Render tabletop prototype with garment cards, category cards, score tracks, and game tokens",
+    },
+  ] satisfies GameDesignItem[],
   dialoguesAndTranslations: [
     {
       author: "Joan Acker",

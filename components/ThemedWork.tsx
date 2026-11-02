@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { SiteContent, ThemeId } from "@/src/data/siteContent";
 import { Conferences } from "./Conferences";
+import { GameDesign } from "./GameDesign";
 import { ResearchAgendas } from "./ResearchAgendas";
 import { ResearchList } from "./ResearchList";
 import { TextSection } from "./TextSection";
@@ -44,6 +45,10 @@ export function ThemedWork({ content }: { content: SiteContent }) {
         heading="Selected Writing"
         writing={content.selectedWriting}
         activeTheme={activeTheme}
+      />
+      <GameDesign
+        heading={content.interface.gameDesignHeading}
+        games={content.gameDesign}
       />
     </>
   );
